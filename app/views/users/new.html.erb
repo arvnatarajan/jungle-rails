@@ -1,0 +1,37 @@
+<section class="users-new">
+
+  <header class="page-header">
+    <h1>Signup Here</h1>
+  </header>
+
+  <%= form_for :user, url: '/users' do |f| %>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th colspan="2">User Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Name:</td>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><%= f.text_field :email %></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><%= f.password_field :password %></td>
+      </tr>
+      <tr>
+        <td>Password Confirmation:</td>
+        <td><%= f.password_field :password_confirmation %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit "Submit" %>
+
+  <% end %>
+</section>
