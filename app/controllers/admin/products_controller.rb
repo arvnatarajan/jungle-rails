@@ -12,7 +12,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to [:admin, products], notice: 'Product created!'
+      redirect_to [:admin, :products], notice: 'Product created!'
     else
       render :new
     end
@@ -25,16 +25,15 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
-
-  def product_params
-    params.require(:product).permit(
-      :name,
-      :description,
-      :category_id,
-      :quantity,
-      :image,
-      :price
-    )
-  end
+    def product_params
+      params.require(:product).permit(
+        :name,
+        :description,
+        :category_id,
+        :quantity,
+        :image,
+        :price
+      )
+    end
 
 end
