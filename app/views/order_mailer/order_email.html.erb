@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Thank you for your order <%= @user.name %>!</h3>
+    <p>
+      To view your order, just click on this <%= link_to 'link', @url %>.
+    </p>
+
+    <table style="border: 1px solid black; text-align: left; border-collapse: collapse" cellpadding="0" cellspacing="0" >
+      <thead style="border: 1px solid black;">
+        <tr>
+          <th colspan="2" style="border: 1px solid black; padding: 10px;">Product</th>
+          <th width="100" style="border: 1px solid black; text-align: center; padding: 10px;">Unit Price</th>
+          <th width="100" style="border: 1px solid black; text-align: center; padding: 10px;">Quantity</th>
+          <th width="100" style="border: 1px solid black; text-align: center; padding: 10px;">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_total = 0 %>
+        <% @order.line_items.each do |line_item|%>
+          <% @order_total += line_item.total_price_cents %>
+          <tr style="border: 1px solid black;">
+            <td style="text-align: center;"><%= image_tag line_item.product.image.tiny %></td>
+            <td width="800px" style="border: 1px solid black; padding: 10px">
+              <h4><%= line_item.product.name %></h4>
+              <p><%= line_item.product.description %></p>
+            </td>
+            <td style="border: 1px solid black; text-align: center;"><%= number_to_currency(line_item.product.price) %></td>
+            <td style="border: 1px solid black; text-align: center;"><%= line_item.quantity %></td>
+            <td style="border: 1px solid black; text-align: center;"><%= number_to_currency(line_item.total_price_cents/100.00) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4" style="padding: 10px;">ORDER TOTAL:</th>
+          <th style="border: 1px solid black; text-align: center; padding: 10px; text-align: center;"><%= number_to_currency(@order_total/100.00) %></th>
+        </tr>
+      </tfoot>
+    </table>
+    <br>
+    <p>Thanks for buying from us and have a great day!</p>
+    <p>the jungle</p>
+  </body>
+</html>
