@@ -29,9 +29,9 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li style="padding: 15px">Signed in as <%= current_user.name %></li>
-          <li><%= link_to "Logout", '/logout' %></li>
+          <li><%= link_to "Logout", "/sessions/#{session[:user_id]}", :method => :delete %></li>
         <% else %>
-            <li><%= link_to 'Login', '/login' %></li>
+            <li><%= link_to 'Login', '/sessions/new' %></li>
             <li><%= link_to 'Signup', '/users/new' %></li>
         <% end %>
        <li class="dropdown">

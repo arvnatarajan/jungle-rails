@@ -30,8 +30,8 @@ class OrdersController < ApplicationController
     Stripe::Charge.create(
       source:      params[:stripeToken],
       amount:      cart_total, # in cents
-      description: "Khurram Virani's Jungle Order",
-      currency:    'cad'
+      description: "Your Jungle Order",
+      currency:    'CAD'
     )
   end
 
@@ -53,7 +53,6 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
-    order
   end
 
   # returns total in cents not dollars (stripe uses cents as well)
