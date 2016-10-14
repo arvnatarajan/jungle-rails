@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  before_filter :authenticate
 
   def index
     @categories = Category.order(id: :desc).all
@@ -30,5 +31,16 @@ class Admin::CategoriesController < ApplicationController
         :name
       )
     end
+
+  protected
+
+  def authenticate
+    puts 'aidhsdjf'
+    authenticate_or_request_with_http_basic do |username, password|
+      puts username
+      puts password
+      username == "jungle" && password == "book"
+    end
+  end
 
 end
