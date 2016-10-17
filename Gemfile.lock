@@ -54,7 +54,6 @@ GEM
       mime-types (>= 1.16)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
-    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     domain_name (0.5.20160615)
@@ -184,8 +183,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    shoulda-matchers (3.1.1)
-      activesupport (>= 4.0.0)
     slop (3.6.0)
     spring (1.7.2)
     sprockets (3.7.0)
@@ -200,6 +197,9 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.0)
@@ -221,7 +221,6 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave
-  database_cleaner
   dotenv-rails
   faker
   font-awesome-rails
@@ -236,12 +235,12 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails_12factor
   rmagick
-  rspec-rails
+  rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  shoulda-matchers
   spring
   stripe
+  turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 
