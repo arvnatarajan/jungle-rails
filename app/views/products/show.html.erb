@@ -7,11 +7,9 @@
   <article class="product-detail">
 
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
-
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
@@ -22,6 +20,35 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+        </dl>
+        <% if session[:user_id] %>
+          <dl class="dl-horizontal">
+            <%= form_for(@review, :url => product_reviews_path(@product)) do |f| %>
+              <dt></dt>
+              <dd><h4>Add your review here!</h4></dd>
+              <dt>Rating</dt>
+              <dd><%= f.select :rating, [1,2,3,4,5] %></dd>
+              <br>
+              <dt>Description</dt>
+              <dd><%= f.text_area :description %></dd>
+              <br>
+              <dd><%= f.submit %></dd>
+            <% end %>
+          </dl>
+        <% end %>
+        <dl class="dl-horizontal">
+          <dt>Review</dt>
+          <% @reviews.order(id: :desc).each do |review| %>
+            <dd><%= "Reviewer: #{review.user.name}" %>
+              <br>
+              <%= "Date posted: #{review.created_at.strftime("%A %b %y")}" %>
+              <br>
+              <%= "Rating: #{review.rating}" %>
+              <br>
+              <%= "Description: #{review.description}" %>
+            </dd>
+            <br>
+          <% end %>
         </dl>
       </div>
     </div>

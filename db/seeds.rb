@@ -129,5 +129,16 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+
+puts "Generating fake Reviews ..."
+
+Review.destroy_all
+
+review1 = Review.create!(user_id: 1, product_id: 4, description: "it is crap", rating: 2)
+review2 = Review.create!(user_id: 1, product_id: 5, description: "it is good", rating: 10)
+review3 = Review.create!(user_id: 1, product_id: 8, description: "it is crap", rating: 3)
+review4 = Review.create!(user_id: 1, product_id: 9, description: "kinda good", rating: 7)
+review5 = Review.create!(user_id: 1, product_id: 8, description: "kinda crap", rating: 5)
 
 puts "DONE!"

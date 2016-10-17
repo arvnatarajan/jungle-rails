@@ -17,6 +17,10 @@ class SessionsController < ApplicationController
      end
    end
 
+   def grant_admin
+    #  session[:user]
+   end
+
    def destroy
      session[:user_id] = nil
      redirect_to '/'

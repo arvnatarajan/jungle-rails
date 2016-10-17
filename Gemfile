@@ -16,8 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -42,9 +41,17 @@ gem 'faker'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-rails'
   gem 'quiet_assets'
   gem 'dotenv-rails'
+  gem 'rspec-rails'
 end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
