@@ -30,7 +30,7 @@
               <dd><%= f.select :rating, [1,2,3,4,5] %></dd>
               <br>
               <dt>Description</dt>
-              <dd><%= f.text_area :description %></dd>
+              <dd><%= f.text_area :description, :required => true %></dd>
               <br>
               <dd><%= f.submit %></dd>
             <% end %>
@@ -46,6 +46,10 @@
               <%= "Rating: #{review.rating}" %>
               <br>
               <%= "Description: #{review.description}" %>
+              <br>
+              <% if session[:user_id] == review.user.id %>
+                <%= link_to fa_icon('trash'), product_review_path(@product, review), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure you want to delete your review?" } %>
+                <% end %>
             </dd>
             <br>
           <% end %>
