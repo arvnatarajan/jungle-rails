@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
 
       redirect_to order, notice: 'Your Order has been placed.'
 
-      OrderMailer.order_email(order, current_user).deliver_later
+      #OrderMailer.order_email(order, current_user).deliver_later
     else
       redirect_to cart_path, error: order.errors.full_messages.first
     end
