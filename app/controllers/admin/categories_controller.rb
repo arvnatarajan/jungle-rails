@@ -34,13 +34,4 @@ class Admin::CategoriesController < ApplicationController
 
   protected
 
-  def authenticate
-    puts 'aidhsdjf'
-    authenticate_or_request_with_http_basic do |username, password|
-      puts username
-      puts password
-      username == "jungle" && password == "book"
-    end
-  end
-
 end
