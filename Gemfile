@@ -53,8 +53,8 @@ group :test do
   gem 'shoulda-matchers', '~> 3.0'
   gem 'database_cleaner'
   gem 'capybara', '~> 2.5'
+  gem 'poltergeist'
 end
-
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
